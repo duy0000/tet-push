@@ -1,0 +1,26 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+@import 'antd/dist/antd.min.css';
+
+:root {
+  --primary-color: #3EAEF4;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  /* Sử dụng font Poppins */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img {
+  object-fit: cover;
+}
