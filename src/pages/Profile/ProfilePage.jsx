@@ -19,6 +19,7 @@ import { updateUser } from "../../redux/slides/userSlide";
 import { Button, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { getBase64 } from "../../utils";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
   const user = useSelector((state) => state.user);
@@ -32,6 +33,7 @@ const ProfilePage = () => {
     UserService.updateUser(id, rests, access_token);
   });
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { data, isLoading, isSuccess, isError } = mutation;
 
@@ -159,23 +161,44 @@ const ProfilePage = () => {
               onChange={handleOnchangeAddress}
             />
           </WrapperInput>
-          <ButtonComponent
-            onClick={handleUpdate}
-            size={40}
-            styleButton={{
-              height: "30px",
-              width: "fit-content",
-              borderRadius: "4px",
-              padding: "6px 15px 6px",
-            }}
-            textbutton={"Cập nhật"}
-            styleTextButton={{
-              color: "rgb(26, 148, 255)",
-              fontSize: "15px",
-              fontWeight: "700",
-              textTransform: "uppercase",
-            }}
-          ></ButtonComponent>
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
+            {" "}
+            <ButtonComponent
+              onClick={handleUpdate}
+              size={40}
+              styleButton={{
+                height: "36px",
+                width: "fit-content",
+                borderRadius: "4px",
+                padding: "6px 15px 10px",
+              }}
+              textbutton={"Cập nhật"}
+              styleTextButton={{
+                color: "rgb(26, 148, 255)",
+                fontSize: "15px",
+                fontWeight: "700",
+                textTransform: "uppercase",
+              }}
+            ></ButtonComponent>
+            <ButtonComponent
+              onClick={() => navigate("/")}
+              size={40}
+              styleButton={{
+                height: "36px",
+                width: "fit-content",
+                borderRadius: "4px",
+                padding: "6px 15px 10px",
+                background: "#ccc",
+              }}
+              textbutton={"Quay lại"}
+              styleTextButton={{
+                // color: "rgb(26, 148, 255)",
+                fontSize: "15px",
+                fontWeight: "700",
+                // textTransform: "uppercase",
+              }}
+            ></ButtonComponent>
+          </div>
         </WrapperContentProfile>
       </Loading>
     </div>

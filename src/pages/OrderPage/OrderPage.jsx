@@ -205,15 +205,15 @@ const OrderPage = () => {
   };
   const itemsDelivery = [
     {
-      title: "20.000 VND",
+      title: "30.000 VND",
       description: "Dưới 200.000 VND",
     },
     {
-      title: "10.000 VND",
+      title: "20.000 VND",
       description: "Từ 200.000 VND đến dưới 500.000 VND",
     },
     {
-      title: "Free ship",
+      title: "10.000 VND",
       description: "Trên 500.000 VND",
     },
   ];
@@ -503,16 +503,16 @@ const OrderPage = () => {
         <Loading isLoading={isLoading}>
           <Form
             name="basic"
-            labelCol={{ span: 4 }}
+            labelCol={{ span: 6 }}
             wrapperCol={{ span: 20 }}
             // onFinish={onUpdateUser}
             autoComplete="on"
             form={form}
           >
             <Form.Item
-              label="Name"
+              label="Họ và tên"
               name="name"
-              rules={[{ required: true, message: "Please input your name!" }]}
+              rules={[{ required: true, message: "Nhập tên của bạn!" }]}
             >
               <InputComponent
                 value={stateUserDetails["name"]}
@@ -520,7 +520,7 @@ const OrderPage = () => {
                 name="name"
               />
             </Form.Item>
-            <Form.Item
+            {/* <Form.Item
               label="City"
               name="city"
               rules={[{ required: true, message: "Please input your city!" }]}
@@ -530,11 +530,11 @@ const OrderPage = () => {
                 onChange={handleOnchangeDetails}
                 name="city"
               />
-            </Form.Item>
+            </Form.Item> */}
             <Form.Item
-              label="Phone"
+              label="Số điện thoại"
               name="phone"
-              rules={[{ required: true, message: "Please input your  phone!" }]}
+              rules={[{ required: true, message: "Nhập số điện thoại!" }]}
             >
               <InputComponent
                 value={stateUserDetails.phone}
@@ -544,11 +544,9 @@ const OrderPage = () => {
             </Form.Item>
 
             <Form.Item
-              label="Adress"
+              label="Địa chỉ"
               name="address"
-              rules={[
-                { required: true, message: "Please input your  address!" },
-              ]}
+              rules={[{ required: true, message: "Nhập địa chỉ!" }]}
             >
               <InputComponent
                 value={stateUserDetails.address}

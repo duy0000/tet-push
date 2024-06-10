@@ -85,11 +85,11 @@ const PaymentPage = () => {
 
   const diliveryPriceMemo = useMemo(() => {
     if (priceMemo >= 500000) {
-      return 0;
-    } else if (200000 <= priceMemo < 500000) {
       return 10000;
-    } else {
+    } else if (200000 <= priceMemo < 500000) {
       return 20000;
+    } else {
+      return 30000;
     }
   }, [priceMemo]);
 
@@ -420,16 +420,16 @@ const PaymentPage = () => {
           <Loading isLoading={isLoading}>
             <Form
               name="basic"
-              labelCol={{ span: 4 }}
+              labelCol={{ span: 6 }}
               wrapperCol={{ span: 20 }}
               // onFinish={onUpdateUser}
               autoComplete="on"
               form={form}
             >
               <Form.Item
-                label="Name"
+                label="Họ và tên"
                 name="name"
-                rules={[{ required: true, message: "Please input your name!" }]}
+                rules={[{ required: true, message: "Nhập tên của bạn!" }]}
               >
                 <InputComponent
                   value={stateUserDetails["name"]}
@@ -437,22 +437,22 @@ const PaymentPage = () => {
                   name="name"
                 />
               </Form.Item>
-              <Form.Item
-                label="City"
+              {/* <Form.Item
+                label="Thành phố"
                 name="city"
-                rules={[{ required: true, message: "Please input your city!" }]}
+                rules={[{ required: true, message: "Nhập thành phố!" }]}
               >
                 <InputComponent
                   value={stateUserDetails["city"]}
                   onChange={handleOnchangeDetails}
                   name="city"
                 />
-              </Form.Item>
+              </Form.Item> */}
               <Form.Item
-                label="Phone"
+                label="Số điện thoại"
                 name="phone"
                 rules={[
-                  { required: true, message: "Please input your  phone!" },
+                  { required: true, message: "Nhập số điện thoại của bạn!" },
                 ]}
               >
                 <InputComponent
@@ -463,11 +463,9 @@ const PaymentPage = () => {
               </Form.Item>
 
               <Form.Item
-                label="Adress"
+                label="Địa chỉ"
                 name="address"
-                rules={[
-                  { required: true, message: "Please input your  address!" },
-                ]}
+                rules={[{ required: true, message: "Nhập địa chỉ của bạn!" }]}
               >
                 <InputComponent
                   value={stateUserDetails.address}
