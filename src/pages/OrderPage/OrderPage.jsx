@@ -388,15 +388,50 @@ const OrderPage = () => {
             <div style={{ width: "100%" }}>
               <WrapperInfo>
                 <div>
-                  <span>Địa chỉ: </span>
-                  <span style={{ fontWeight: "bold" }}>
-                    {`${user?.address} ${user?.city}`}{" "}
-                  </span>
+                  <strong style={{ textTransform: "uppercase" }}>
+                    thông tin khách hàng
+                  </strong>
+                  <div>
+                    {" "}
+                    <span>Tên khách hàng: </span>
+                    <span
+                      style={{
+                        fontWeight: "bold",
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      {`${user?.name}`}
+                    </span>
+                  </div>
+                  <div>
+                    {" "}
+                    <span>Số điện thoại: </span>
+                    <span
+                      style={{
+                        fontWeight: "bold",
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      0{`${user?.phone}`}
+                    </span>
+                  </div>
+                  <div>
+                    {" "}
+                    <span>Địa chỉ: </span>
+                    <span
+                      style={{
+                        fontWeight: "bold",
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      {`${user?.address}`}
+                    </span>
+                  </div>
                   <span
                     onClick={handleChangeAddress}
                     style={{ color: "#3EAEF4", cursor: "pointer" }}
                   >
-                    Thay đổi
+                    Thay đổi thông tin
                   </span>
                 </div>
               </WrapperInfo>
