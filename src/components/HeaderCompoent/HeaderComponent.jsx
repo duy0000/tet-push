@@ -61,7 +61,7 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
         </WrapperContentPopup>
       )}
       <WrapperContentPopup onClick={() => handleClickNavigate(`my-order`)}>
-        Đơn hàng của tôi
+        Thông tin đơn hàng
       </WrapperContentPopup>
       <WrapperContentPopup onClick={() => handleClickNavigate()}>
         Đăng xuất
@@ -97,6 +97,7 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
       style={{
         height: "100%",
         width: "100%",
+        margin: "auto",
         display: "flex",
         background: "#3EAEF4",
         justifyContent: "center",
@@ -110,15 +111,15 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
       >
         <Col span={5}>
           <WrapperTextHeader to="/">
-            <img src={logo} alt="" style={{ width: "100px", height: "40px" }} />
+            <img src={logo} alt="" style={{ width: "200px", height: "60px" }} />
           </WrapperTextHeader>
         </Col>
         {!isHiddenSearch && (
-          <Col span={13}>
+          <Col span={12}>
             <ButttonInputSearch
               size="large"
               bordered={false}
-              textbutton="Tìm kiếm"
+              textbutton=""
               placeholder="Tìm kiếm...."
               onChange={onSearch}
               backgroundColorButton="#92B9E3"
@@ -126,8 +127,8 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
           </Col>
         )}
         <Col
-          span={5}
-          style={{ display: "flex", gap: "34px", alignItems: "center" }}
+          span={7}
+          style={{ display: "flex", gap: "10px", alignItems: "center" }}
         >
           <Loading isLoading={loading}>
             <WrapperHeaderAccout>

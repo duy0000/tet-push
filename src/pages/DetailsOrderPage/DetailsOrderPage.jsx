@@ -49,8 +49,22 @@ const DetailsOrderPage = () => {
 
   return (
     <Loading isLoading={isLoading}>
-      <div style={{ width: "100%", height: "100vh", background: "#f5f5fa" }}>
-        <div style={{ width: "100%", margin: "0 auto", height: "100%" }}>
+      <div
+        style={{
+          width: "1000px",
+          margin: "auto",
+          height: "100vh",
+          background: "#f5f5fa",
+        }}
+      >
+        <div
+          style={{
+            width: "1000px",
+            margin: "auto",
+            margin: "0 auto",
+            height: "100%",
+          }}
+        >
           <h4>Chi tiết đơn hàng</h4>
           <WrapperHeaderUser>
             <WrapperInfoUser>

@@ -21,7 +21,14 @@ const OrderSucess = () => {
   return (
     <div style={{ background: "#f5f5fa", with: "100%", height: "100vh" }}>
       <Loading isLoading={false}>
-        <div style={{ height: "100%", width: "100%", margin: "0 auto" }}>
+        <div
+          style={{
+            height: "100%",
+            width: "1000px",
+            margin: "auto",
+            margin: "0 auto",
+          }}
+        >
           <h3>Đơn hàng đặt thành công</h3>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <WrapperContainer>

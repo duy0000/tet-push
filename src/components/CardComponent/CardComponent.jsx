@@ -38,7 +38,7 @@ const CardComponent = (props) => {
       cover={<img alt="example" src={image} style={{ borderRadius: "10px" }} />}
       onClick={() => handleDetailsProduct(id)}
     >
-      <img
+      {/* <img
         src={logo}
         style={{
           width: "68px",
@@ -48,7 +48,23 @@ const CardComponent = (props) => {
           left: -1,
           borderTopLeftRadius: "3px",
         }}
-      />
+      /> */}
+      <span
+        style={{
+          width: "58px",
+          fontWeight: "700",
+          position: "absolute",
+          top: -1,
+          left: 0,
+          borderRadius: "10px",
+          backgroundColor: "rgb(255, 66, 78)",
+          borderTopLeftRadius: "3px",
+          color: "#fff",
+          textAlign: "center",
+        }}
+      >
+        - {discount} %
+      </span>
       <StyleNameProduct>{name}</StyleNameProduct>
       <WrapperReportText>
         <span style={{ marginRight: "4px" }}>
@@ -61,7 +77,6 @@ const CardComponent = (props) => {
       </WrapperReportText>
       <WrapperPriceText>
         <span style={{ marginRight: "8px" }}>{convertPrice(price)}</span>
-        <WrapperDiscountText>- {discount || 5} %</WrapperDiscountText>
       </WrapperPriceText>
     </WrapperCardStyle>
   );

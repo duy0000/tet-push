@@ -48,12 +48,20 @@ const TypeProductPage = () => {
     <Loading isLoading={loading}>
       <div
         style={{
-          width: "100%",
+          width: "1000px",
+          margin: "auto",
           background: "#efefef",
           height: "calc(100vh - 64px)",
         }}
       >
-        <div style={{ width: "100%", margin: "0 auto", height: "100%" }}>
+        <div
+          style={{
+            width: "1000px",
+            margin: "auto",
+            margin: "0 auto",
+            height: "100%",
+          }}
+        >
           <Row
             style={{
               flexWrap: "nowrap",

@@ -252,7 +252,14 @@ const PaymentPage = () => {
   return (
     <div style={{ background: "#f5f5fa", with: "100%", height: "100vh" }}>
       <Loading isLoading={isLoadingAddOrder}>
-        <div style={{ height: "100%", width: "100%", margin: "0 auto" }}>
+        <div
+          style={{
+            height: "100%",
+            width: "1000px",
+            margin: "auto",
+            margin: "0 auto",
+          }}
+        >
           <h3>Thanh toán</h3>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <WrapperLeft>
@@ -289,18 +296,53 @@ const PaymentPage = () => {
               </WrapperInfo>
             </WrapperLeft>
             <WrapperRight>
-              <div style={{ width: "100%" }}>
+              <div style={{ width: "1000px", margin: "auto" }}>
                 <WrapperInfo>
                   <div>
-                    <span>Địa chỉ: </span>
-                    <span style={{ fontWeight: "bold" }}>
-                      {`${user?.address} ${user?.city}`}{" "}
-                    </span>
+                    <strong style={{ textTransform: "uppercase" }}>
+                      thông tin khách hàng
+                    </strong>
+                    <div>
+                      {" "}
+                      <span>Tên khách hàng: </span>
+                      <span
+                        style={{
+                          fontWeight: "bold",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        {`${user?.name}`}
+                      </span>
+                    </div>
+                    <div>
+                      {" "}
+                      <span>Số điện thoại: </span>
+                      <span
+                        style={{
+                          fontWeight: "bold",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        0{`${user?.phone}`}
+                      </span>
+                    </div>
+                    <div>
+                      {" "}
+                      <span>Địa chỉ: </span>
+                      <span
+                        style={{
+                          fontWeight: "bold",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        {`${user?.address}`}
+                      </span>
+                    </div>
                     <span
                       onClick={handleChangeAddress}
                       style={{ color: "#3EAEF4", cursor: "pointer" }}
                     >
-                      Thay đổi
+                      Thay đổi thông tin
                     </span>
                   </div>
                 </WrapperInfo>
@@ -378,7 +420,8 @@ const PaymentPage = () => {
                   </span>
                 </WrapperTotal>
               </div>
-              {payment === "paypal" && sdkReady ? (
+              {/* {payment === "paypal" && sdkReady ? ( */}
+              {payment === "paypal" ? (
                 <div style={{ width: "320px" }}>
                   <PayPalButton
                     amount={Math.round(totalPriceMemo / 30000)}

@@ -134,11 +134,13 @@ const OrderPage = () => {
 
   const diliveryPriceMemo = useMemo(() => {
     if (priceMemo >= 20000 && priceMemo < 500000) {
+      return 20000;
+    } else if (priceMemo >= 500000) {
       return 10000;
-    } else if (priceMemo >= 500000 || order?.orderItemsSlected?.length === 0) {
+    } else if (priceMemo === 0 || order?.orderItemsSlected?.length === 0) {
       return 0;
     } else {
-      return 20000;
+      return 30000;
     }
   }, [priceMemo]);
 
@@ -219,7 +221,14 @@ const OrderPage = () => {
   ];
   return (
     <div style={{ background: "#f5f5fa", with: "100%", height: "100vh" }}>
-      <div style={{ height: "100%", width: "100%", margin: "0 auto" }}>
+      <div
+        style={{
+          height: "100%",
+          width: "1000px",
+          margin: "auto",
+          margin: "0 auto",
+        }}
+      >
         {/* <h3 style={{ fontWeight: 'bold' }}>Giỏ hàng</h3> */}
         <div style={{ display: "flex", justifyContent: "center" }}>
           <WrapperLeft>
@@ -385,7 +394,7 @@ const OrderPage = () => {
             </WrapperListOrder>
           </WrapperLeft>
           <WrapperRight>
-            <div style={{ width: "100%" }}>
+            <div style={{ width: "1000px", margin: "auto" }}>
               <WrapperInfo>
                 <div>
                   <strong style={{ textTransform: "uppercase" }}>

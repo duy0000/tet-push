@@ -25,7 +25,7 @@ const HomePage = () => {
   const searchProduct = useSelector((state) => state?.product?.search);
   const searchDebounce = useDebounce(searchProduct, 500);
   const [loading, setLoading] = useState(false);
-  const [limit, setLimit] = useState(6);
+  const [limit, setLimit] = useState(4);
   const [typeProducts, setTypeProducts] = useState([]);
 
   const fetchProductAll = async (context) => {
@@ -59,7 +59,7 @@ const HomePage = () => {
 
   return (
     <Loading isLoading={isLoading || loading}>
-      <div style={{ width: "100%", margin: "0 auto" }}>
+      <div style={{ width: "100%", margin: "auto", margin: "0 auto" }}>
         <WrapperTypeProduct>
           {typeProducts.map((item) => {
             return <TypeProduct name={item} key={item} />;
@@ -68,11 +68,16 @@ const HomePage = () => {
       </div>
       <div
         className="body"
-        style={{ width: "100%", backgroundColor: "#efefef" }}
+        style={{ width: "100%", margin: "auto", backgroundColor: "#efefef" }}
       >
         <div
           id="container"
-          style={{ height: "1000px", width: "100%", margin: "0 auto" }}
+          style={{
+            height: "1000px",
+            width: "100%",
+            margin: "auto",
+            margin: "0 auto",
+          }}
         >
           <SliderComponent
             arrImages={[slider2, slider3, slider4, slider5, slider6]}
@@ -98,7 +103,8 @@ const HomePage = () => {
           </WrapperProducts>
           <div
             style={{
-              width: "100%",
+              width: "1000px",
+              margin: "auto",
               display: "flex",
               justifyContent: "center",
               marginTop: "10px",
@@ -130,7 +136,7 @@ const HomePage = () => {
                 fontWeight: 500,
                 color: products?.total === products?.data?.length && "#fff",
               }}
-              onClick={() => setLimit((prev) => prev + 6)}
+              onClick={() => setLimit((prev) => prev + 4)}
             />
           </div>
         </div>
