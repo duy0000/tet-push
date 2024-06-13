@@ -111,7 +111,11 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
       >
         <Col span={5}>
           <WrapperTextHeader to="/">
-            <img src={logo} alt="" style={{ width: "200px", height: "60px" }} />
+            <img
+              src={logo}
+              alt=""
+              style={{ width: "200px", height: "60px", marginLeft: "40px" }}
+            />
           </WrapperTextHeader>
         </Col>
         {!isHiddenSearch && (
@@ -127,8 +131,12 @@ const HeaderComponent = ({ isHiddenSearch = false, isHiddenCart = false }) => {
           </Col>
         )}
         <Col
-          span={7}
-          style={{ display: "flex", gap: "10px", alignItems: "center" }}
+          style={{
+            display: "flex",
+            gap: "18px",
+            alignItems: "center",
+            margin: "0 40px",
+          }}
         >
           <Loading isLoading={loading}>
             <WrapperHeaderAccout>

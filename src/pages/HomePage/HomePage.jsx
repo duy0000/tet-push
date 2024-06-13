@@ -103,7 +103,7 @@ const HomePage = () => {
           </WrapperProducts>
           <div
             style={{
-              width: "1000px",
+              width: "100%",
               margin: "auto",
               display: "flex",
               justifyContent: "center",

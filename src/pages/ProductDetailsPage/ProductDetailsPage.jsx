@@ -8,7 +8,7 @@ const ProductDetailsPage = () => {
   return (
     <div
       style={{
-        width: "1000px",
+        width: "100%",
         margin: "auto",
         background: "#efefef",
         height: "100%",
@@ -16,7 +16,7 @@ const ProductDetailsPage = () => {
     >
       <div
         style={{
-          width: "1000px",
+          width: "100%",
           margin: "auto",
           height: "100%",
           margin: "0 auto",

@@ -51,7 +51,7 @@ const DetailsOrderPage = () => {
     <Loading isLoading={isLoading}>
       <div
         style={{
-          width: "1000px",
+          width: "100%",
           margin: "auto",
           height: "100vh",
           background: "#f5f5fa",
@@ -59,7 +59,7 @@ const DetailsOrderPage = () => {
       >
         <div
           style={{
-            width: "1000px",
+            width: "100%",
             margin: "auto",
             margin: "0 auto",
             height: "100%",

@@ -122,7 +122,7 @@ const MyOrderPage = () => {
         <div
           style={{
             height: "100%",
-            width: "1000px",
+            width: "100%",
             margin: "auto",
             margin: "0 auto",
           }}

@@ -224,7 +224,7 @@ const OrderPage = () => {
       <div
         style={{
           height: "100%",
-          width: "1000px",
+          width: "100%",
           margin: "auto",
           margin: "0 auto",
         }}
@@ -394,7 +394,7 @@ const OrderPage = () => {
             </WrapperListOrder>
           </WrapperLeft>
           <WrapperRight>
-            <div style={{ width: "1000px", margin: "auto" }}>
+            <div style={{ width: "100%", margin: "auto" }}>
               <WrapperInfo>
                 <div>
                   <strong style={{ textTransform: "uppercase" }}>

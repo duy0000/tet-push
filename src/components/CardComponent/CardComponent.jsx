@@ -38,17 +38,6 @@ const CardComponent = (props) => {
       cover={<img alt="example" src={image} style={{ borderRadius: "10px" }} />}
       onClick={() => handleDetailsProduct(id)}
     >
-      {/* <img
-        src={logo}
-        style={{
-          width: "68px",
-          height: "14px",
-          position: "absolute",
-          top: -1,
-          left: -1,
-          borderTopLeftRadius: "3px",
-        }}
-      /> */}
       <span
         style={{
           width: "58px",
@@ -67,13 +56,16 @@ const CardComponent = (props) => {
       </span>
       <StyleNameProduct>{name}</StyleNameProduct>
       <WrapperReportText>
-        <span style={{ marginRight: "4px" }}>
+        <span style={{ marginRight: "4px", whiteSpace: "nowrap" }}>
           <span>{rating} </span>{" "}
           <StarFilled
             style={{ fontSize: "12px", color: "rgb(253, 216, 54)" }}
           />
         </span>
-        <WrapperStyleTextSell> | Da ban {selled || 1000}+</WrapperStyleTextSell>
+        <WrapperStyleTextSell>
+          {" "}
+          | Đã bán {selled || "1000 +"} sản phẩm
+        </WrapperStyleTextSell>{" "}
       </WrapperReportText>
       <WrapperPriceText>
         <span style={{ marginRight: "8px" }}>{convertPrice(price)}</span>

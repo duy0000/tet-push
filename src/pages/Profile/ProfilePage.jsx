@@ -94,7 +94,7 @@ const ProfilePage = () => {
   return (
     <div
       style={{
-        width: "1000px",
+        width: "100%",
         margin: "auto",
         margin: "0 auto",
         height: "500px",

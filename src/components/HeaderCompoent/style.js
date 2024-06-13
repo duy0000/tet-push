@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const WrapperHeader = styled(Row)`
   background-color: var(--primary-color);
   align-items: center;
-  gap: 16px;
+
   flex-wrap: nowrap;
   width: 100%;
   padding: 10px 0;
