@@ -31,7 +31,7 @@ export type TSinhVien = {
   Role: string;
 };
 export type TGiangVien = {
-  IDSinhVien: number;
+  IdSinhVien: number;
   IDNhanSu_UNETI: number;
   CV_HT_NhanSu_ID: number;
   IDNhanSu: number;
