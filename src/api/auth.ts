@@ -1,11 +1,11 @@
-import http from "../config/http";
+import http from "@/config/http";
 import {
   TLoginBody,
   TLoginResponse,
   TStudentProfileResponse,
   TTeacherProfileBody,
   TTeacherProfileResponse,
-} from "../types/auth.type";
+} from "@/types/auth.type";
 
 export const apiLogin = (body: TLoginBody) =>
   http.post<TLoginResponse>("jwt_NguoiDung/Login_NguoiDung", body);
@@ -32,7 +32,6 @@ export const apiGetStudentProfile = ({
       },
     }
   );
-
 export const apiGetTeacherProfile = ({
   body,
   token,

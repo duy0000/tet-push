@@ -18,7 +18,11 @@ export default function Header() {
     <header className="bg-white rounded-b-3xl shadow fixed left-0 right-0 top-0 w-full z-[10]">
       <div className="max-w-7xl flex items-center justify-between mx-auto relative bg-transparent">
         <Link to="/" className="flex items-center p-2">
-          <img src={"LOGO_UNETI.ico"} className="h-12 mr-3" alt="UNETI Logo" />
+          <img
+            src={"/images/LOGO_UNETI.ico"}
+            className="h-12 mr-3"
+            alt="UNETI Logo"
+          />
         </Link>
         <div className="hidden lg:block col-span-7 flex-1 h-full">
           <div className="inline-block py-1 border-b-4 border-sky-600 text-left text-md">

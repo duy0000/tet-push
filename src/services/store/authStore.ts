@@ -1,18 +1,7 @@
-import { TSinhVien } from "../../types/user.type";
+import { AuthStore } from "@/types/auth.type";
+import { TGiangVien, TSinhVien } from "@/types/user.type";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
-type AuthStore = {
-  dataUser: TSinhVien | null;
-  role: string;
-  accessToken: string;
-  refreshToken: string;
-  setDataUser: (data: TSinhVien | null) => void;
-  setRole: (role: string) => void;
-  setAccessToken: (accessToken: string) => void;
-  setRefreshToken: (refreshToken: string) => void;
-  resetAuthStore: () => void;
-};
 
 const useAuthStore = create<AuthStore>()(
   persist(
@@ -21,7 +10,8 @@ const useAuthStore = create<AuthStore>()(
       role: "",
       accessToken: "",
       refreshToken: "",
-      setDataUser: (data: TSinhVien | null) => set({ dataUser: data }),
+      setDataUser: (data: TSinhVien | TGiangVien | null) =>
+        set({ dataUser: data }),
       setRole: (role: string) => set({ role: role }),
       setAccessToken: (accessToken: string) =>
         set({ accessToken: accessToken }),

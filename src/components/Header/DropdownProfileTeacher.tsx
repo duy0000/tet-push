@@ -10,7 +10,7 @@ interface Props {
   onLogout: () => void;
 }
 export default function DropdownProfileTeacher({ onLogout }: Props) {
-  const hoverRef = useRef(null);
+  const hoverRef = useRef<HTMLDivElement>(null);
   const isHover = useHover(hoverRef);
   const { dataUser } = useAuthStore();
 
@@ -20,7 +20,7 @@ export default function DropdownProfileTeacher({ onLogout }: Props) {
         <span className="sr-only">Open user menu</span>
         <img
           className="w-12 h-12 rounded-full object-cover border border-slate-500"
-          src={"noavatar.png"}
+          src={"./images/no-avatar.jpg"}
           alt="user photo"
         />
         <span className="hidden md:block">{`${dataUser?.HoDem} ${dataUser?.Ten}`}</span>

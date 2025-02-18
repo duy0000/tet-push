@@ -1,8 +1,8 @@
-import { Route } from 'react-router'
-import LoginPage from '../pages/Auth'
+import AuthPage from "@/pages/Auth";
+import { Route } from "react-router";
 
 export const publicRoutes = (
   <>
-    <Route path='dang-nhap' element={<LoginPage />} />
+    <Route path="dang-nhap" element={<AuthPage />} />
   </>
-)
+);

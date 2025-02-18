@@ -23,7 +23,7 @@ const onRequest = (
   const authStore = localStorage.getItem("authStore");
   if (authStore) {
     const auth = JSON.parse(authStore);
-    config.headers.authorization = `Bearer ${auth.state.token.accessToken}`;
+    config.headers.authorization = `Bearer ${auth.state.accessToken}`;
   }
 
   return config;
