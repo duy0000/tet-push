@@ -1,15 +1,15 @@
 import CryptoJS from "crypto-js";
 import { jwtDecode, JwtPayload } from "jwt-decode";
-export const decryptAESValueWithPrivateKey = (
-  cipherText: string = ""
-): string => {
-  const bytes = CryptoJS.AES.decrypt(
-    cipherText,
-    import.meta.env.VITE_PRIVATE_KEY_ENCRYPT as string
-  );
-  return bytes.toString(CryptoJS.enc.Utf8);
-};
-console.log("giá trj import", import.meta.env.VITE_PRIVATE_KEY_ENCRYPT);
+// export const decryptAESValueWithPrivateKey = (
+//   cipherText: string = ""
+// ): string => {
+//   const bytes = CryptoJS.AES.decrypt(
+//     cipherText,
+//     import.meta.env.VITE_PRIVATE_KEY_ENCRYPT as string
+//   );
+//   return bytes.toString(CryptoJS.enc.Utf8);
+// };
+// console.log("giá trj import", import.meta.env.VITE_PRIVATE_KEY_ENCRYPT);
 
 export const encryptAESValueWithPrivateKey = (
   plainText: string = ""

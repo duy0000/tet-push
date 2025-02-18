@@ -9,7 +9,7 @@ import {
 import { toastSystem } from "../../services/utils/toastConfig.utils";
 import { loginSchema } from "../../services/schema/auth.schema";
 import { TLoginBody, FormValues } from "../../types/auth.type";
-import { TSinhVien } from "../../types/user.type";
+import { TSinhVien } from "";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
@@ -92,50 +92,50 @@ export default function LoginForm() {
     }
   };
 
-  const handleLogin = async (values: TLoginBody) => {
-    const decryptBodyLogin: TLoginBody = {
-      TenDangNhap: encryptAESValueWithPrivateKey(values.TenDangNhap),
-      MatKhau: encryptAESValueWithPrivateKey(values.MatKhau),
-    };
-    if (loginMutation.isPending) return;
-    const { data } = await loginMutation.mutateAsync(decryptBodyLogin);
-    setAccessToken(data.token);
-    setRefreshToken(data.refreshToken);
-    const dataDecodedToken = decodedToken(data.token) as JwtPayload & {
-      data: {
-        Role: string;
-      }[];
-    };
+  // const handleLogin = async (values: TLoginBody) => {
+  //   const decryptBodyLogin: TLoginBody = {
+  //     TenDangNhap: encryptAESValueWithPrivateKey(values.TenDangNhap),
+  //     MatKhau: encryptAESValueWithPrivateKey(values.MatKhau),
+  //   };
+  //   if (loginMutation.isPending) return;
+  //   const { data } = await loginMutation.mutateAsync(decryptBodyLogin);
+  //   setAccessToken(data.token);
+  //   setRefreshToken(data.refreshToken);
+  //   const dataDecodedToken = decodedToken(data.token) as JwtPayload & {
+  //     data: {
+  //       Role: string;
+  //     }[];
+  //   };
 
-    const userRole: 0 | 1 = Number(
-      decryptAESValueWithPrivateKey(dataDecodedToken.data[0].Role)
-    ) as 0 | 1;
+  //   const userRole: 0 | 1 = Number(
+  //     decryptAESValueWithPrivateKey(dataDecodedToken.data[0].Role)
+  //   ) as 0 | 1;
 
-    const resultProfileData = await getDataUser({
-      token: data.token,
-      userDataLogin: decryptBodyLogin,
-      userRole,
-    });
+  //   const resultProfileData = await getDataUser({
+  //     token: data.token,
+  //     userDataLogin: decryptBodyLogin,
+  //     userRole,
+  //   });
 
-    if (!resultProfileData) {
-      toastSystem.error(
-        "Không thể lấy thông tin người dùng. Vui lòng liên hệ bộ phận kỹ thuật!"
-      );
-      return;
-    }
+  //   if (!resultProfileData) {
+  //     toastSystem.error(
+  //       "Không thể lấy thông tin người dùng. Vui lòng liên hệ bộ phận kỹ thuật!"
+  //     );
+  //     return;
+  //   }
 
-    if (userRole === 0) {
-      const dataSV = resultProfileData.data.body[0] as TSinhVien;
-      const { data, message } = checkedDataSinhVien(dataSV);
-      if (!data) {
-        toastSystem.error(typeof message === "string" ? message : message());
-        return;
-      }
-      setDataUser(data);
-      setRole(dataSV.Role);
-      navigate("/");
-    }
-  };
+  //   if (userRole === 0) {
+  //     const dataSV = resultProfileData.data.body[0] as TSinhVien;
+  //     const { data, message } = checkedDataSinhVien(dataSV);
+  //     if (!data) {
+  //       toastSystem.error(typeof message === "string" ? message : message());
+  //       return;
+  //     }
+  //     setDataUser(data);
+  //     setRole(dataSV.Role);
+  //     navigate("/");
+  //   }
+  // };
   const {
     register,
     handleSubmit,
@@ -148,7 +148,7 @@ export default function LoginForm() {
     <section
       className={`absolute right-0 left-0 top-0 bottom-0 w-full h-full flex justify-center items-center bg-center bg-no-repeat  bg-gray-400 bg-blend-multiply px-4 lg:px-0`}
       style={{
-        backgroundImage: `url('uneti-banner.jpg')`,
+        backgroundImage: `url('/images/uneti-banner.jpg')`,
         backgroundPositionY: `86%`,
       }}
     >
@@ -160,7 +160,7 @@ export default function LoginForm() {
       <div className="w-[640px] rounded-lg bg-white p-8">
         <div className="flex justify-center mb-4 md:mb-8">
           <img
-            src="LOGO_UNETI.ico"
+            src="/images/LOGO_UNETI.ico"
             alt="UNETI Logo"
             className="w-[100px] md:w-[147px]"
           />
