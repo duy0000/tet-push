@@ -1,6 +1,6 @@
 import { homeMain } from "@/services/Static/dataStatic";
 import { Link, useNavigate } from "react-router";
-import { decryptAESWithKey } from "@/services/utils/cryptography";
+import { decryptAESWithKey } from "@/services/Utils/cryptography";
 
 function Home() {
   const navigate = useNavigate();

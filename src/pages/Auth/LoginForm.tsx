@@ -6,7 +6,7 @@ import {
   encryptAESValueWithPrivateKey,
 } from "@/services/utils/user.util";
 import { toastSystem } from "@/services/utils/toastConfig.utils";
-import { loginSchema } from "@/services/schema/auth.schema";
+import { loginSchema } from "@/services/Schema/auth.schema";
 import { TLoginBody, FormValues } from "@/types/auth.type";
 import { TGiangVien, TSinhVien } from "@/types/user.type";
 import { useForm } from "react-hook-form";
@@ -25,8 +25,9 @@ import Loading from "@/components/Loading";
 import {
   useStudentProfileMutation,
   useTeacherProfileMutation,
-} from "@/services/queries/user.query";
-import { enumUserRoleNumber } from "@/services/constants";
+} from "@/services/Queries/user.query";
+import CircularProgress from "@mui/material/CircularProgress";
+import { enumUserRoleNumber } from "@/services/Constants";
 
 export default function LoginForm() {
   const [visiblePassword, setVisiblePassword] = useState(false);
@@ -35,6 +36,12 @@ export default function LoginForm() {
   const loginMutation = useLoginMutation();
   const getTeacherProfile = useTeacherProfileMutation();
   const getStudentProfile = useStudentProfileMutation();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({ resolver: yupResolver(loginSchema) });
 
   const navigate = useNavigate();
 
@@ -112,6 +119,8 @@ export default function LoginForm() {
       TenDangNhap: encryptAESValueWithPrivateKey(values.TenDangNhap),
       MatKhau: encryptAESValueWithPrivateKey(values.MatKhau),
     };
+    console.log("isSubmitting", isSubmitting);
+
     if (loginMutation.isPending) return;
     const { data } = await loginMutation.mutateAsync(decryptBodyLogin);
     setAccessToken(data.token);
@@ -153,15 +162,9 @@ export default function LoginForm() {
       const dataGV = resultProfileData.data.body[0] as TGiangVien;
       setDataUser(dataGV);
       setRole(dataGV.Role);
-      navigate("/");
+      navigate("/dashboard");
     }
   };
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isLoading },
-  } = useForm<FormValues>({ resolver: yupResolver(loginSchema) });
 
   return (
     <section
@@ -171,11 +174,6 @@ export default function LoginForm() {
         backgroundPositionY: `86%`,
       }}
     >
-      {/* {loginMutation.isPending && (
-        <div className="absolute z-50 inset-0 w-full min-h-screen bg-black bg-opacity-50 flex justify-center items-center">
-          <Loading />
-        </div>
-      )} */}
       <div className="w-[640px] rounded-lg bg-white p-8">
         <div className="flex justify-center mb-4 md:mb-8">
           <img
@@ -203,6 +201,7 @@ export default function LoginForm() {
               className="px-4 py-2 border border-slate-300 rounded-full outline-none valid:bg-white"
               placeholder="Tài khoản"
               autoComplete="on"
+              disabled={isSubmitting}
             />
             {errors.TenDangNhap && (
               <div className="h-2 pb-4 text-sm text-red-600 absolute bottom-[-15px] left-5">
@@ -221,6 +220,7 @@ export default function LoginForm() {
                 type={visiblePassword ? "text" : "password"}
                 className="px-4 py-2 border border-slate-300 w-full rounded-full outline-none valid:bg-white"
                 placeholder="Mật khẩu"
+                disabled={isSubmitting}
               />
               <span
                 className="absolute right-5 top-3 cursor-pointer text-xl"
@@ -241,9 +241,9 @@ export default function LoginForm() {
           </div>
           <button
             type="submit"
-            className="px-3 py-2 rounded-full bg-white text-sky-800 font-semibold border border-sky-800 hover:bg-sky-800 hover:text-white"
+            className="h-[42px] px-3 py-2 rounded-full bg-white text-sky-800 font-semibold border border-sky-800 hover:bg-sky-800 hover:text-white flex items-center justify-center"
           >
-            {isLoading ? "loading" : "Đăng nhập"}
+            {isSubmitting ? <CircularProgress size="28px" /> : "Đăng nhập"}
           </button>
         </form>
 

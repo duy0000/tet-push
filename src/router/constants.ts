@@ -1,4 +1,4 @@
-import { simpleSHA256 } from "@/services/utils/stringUtils";
+import { simpleSHA256 } from "@/services/Utils/stringUtils";
 
 export const ROLES = {
   A0000: simpleSHA256("Admin"),

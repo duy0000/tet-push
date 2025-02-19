@@ -23,7 +23,7 @@ export default function Footer() {
             </a>
             <Link to="/">
               <img
-                src={"LOGO_UNETI.ico"}
+                src={"images/LOGO_UNETI.ico"}
                 alt="UNETI Logo"
                 width={160}
                 title="Trường Đại học Kinh tế - Kỹ thuật Công nghiệp"
