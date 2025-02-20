@@ -1,7 +1,7 @@
-import { lazy } from 'react'
+// import { lazy } from 'react'
 
-const TheoDoiDeNghiGV = lazy(
-  () => import('@/Pages/Clients/GiangVien/TheoDoiDeNghiGV'),
-)
+// const TheoDoiDeNghiGV = lazy(
+//   () => import('@/Pages/Clients/GiangVien/TheoDoiDeNghiGV'),
+// )
 
-export { TheoDoiDeNghiGV }
+// export { TheoDoiDeNghiGV }
